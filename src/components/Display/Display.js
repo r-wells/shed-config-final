@@ -5,6 +5,7 @@ import * as THREE from "three";
 
 import TWEEN from "@tweenjs/tween.js";
 import { OrbitControls } from "./OrbitControls.js";
+import Button from "./../Button/Button";
 
 var scene = new THREE.Scene();
 
@@ -93,7 +94,6 @@ class Display extends Component {
   }
 
   updateExtrasState() {
-    console.log("extras finished downloading");
     this.setState({ extrasDownloaded: true });
   }
 
@@ -104,7 +104,6 @@ class Display extends Component {
   };
 
   setCurrentConfig(array) {
-    console.log("configuration updated");
     var sizing = this.state.sizing;
     this.setState({ currentConfig: array });
     if (sizing === "eight") {
@@ -119,7 +118,6 @@ class Display extends Component {
   resetCamPosition() {
     if (this.state.camPosition !== "unknown") {
       this.setState({ camPosition: "unknown" });
-      console.log("cam position moved");
     }
   }
 
@@ -129,7 +127,6 @@ class Display extends Component {
   };
 
   resetDefaultConfig(size) {
-    console.log(`resetting defaults for ${size}`);
     this.setState({ resetDefault: size });
   }
 
@@ -214,12 +211,10 @@ class Display extends Component {
       precision: precisionQuality,
     });
 
-    manager.onStart = function (url, itemsLoaded, itemsTotal) {
-      // console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
-    };
+    manager.onStart = function (url, itemsLoaded, itemsTotal) {};
 
     manager.onLoad = function () {
-      console.log("Loading complete!");
+      // console.log("Loading complete!");
       setTimeout(init, 100);
       preloader.style.display = "none";
 
@@ -249,7 +244,7 @@ class Display extends Component {
 
     manager.onProgress = function (item, loaded, total) {
       var percentageLoad = (loaded / total) * 100 + "%";
-      console.log(percentageLoad);
+      // console.log(percentageLoad);
 
       preloader.innerHTML = percentageLoad;
       // console.log(preloader);
@@ -258,7 +253,7 @@ class Display extends Component {
     this.mount.appendChild(preloader);
 
     manager.onError = function (url) {
-      console.log("There was an error loading " + url);
+      // console.log("There was an error loading " + url);
     };
 
     manager2.onLoad = () => {
@@ -277,8 +272,8 @@ class Display extends Component {
       twelve = { twelve: twelve };
       jsonData = { ...eight, ...ten, ...twelve };
       this.setState({ allConfigs: jsonData });
-    //   jsonData = JSON.stringify(jsonData);
-    //   this.download(jsonData, "json.txt", "text/plain");
+      //   jsonData = JSON.stringify(jsonData);
+      //   this.download(jsonData, "json.txt", "text/plain");
     };
 
     envLoader.load(
@@ -435,7 +430,7 @@ class Display extends Component {
         if (check) {
           if (this.state.camTargetPosition === this.state.camPosition) {
             delay = 0;
-            console.log("camera already in position");
+            // console.log("camera already in position");
           } else {
             this.startCamAnim(this.state.camTargetPosition);
           }
@@ -448,7 +443,7 @@ class Display extends Component {
             disableMeshGroup(disableMesh);
             enableMeshGroup(enableMesh);
             changeColor(this.state.color, enableMesh);
-            console.log("configuration changed successfully");
+            // console.log("configuration changed successfully");
             idleTime = 0;
           }, delay);
         } else {
@@ -467,15 +462,15 @@ class Display extends Component {
         var newConfig;
         if (size === "ten" || size === "eight" || size === "twelve") {
           if (size === "ten") {
-            console.log("switching to size Ten");
+            // console.log("switching to size Ten");
             newConfig = this.state.Config_10x10;
             this.setState({ sizing: "ten" });
           } else if (size === "eight") {
-            console.log("switching to size Eight");
+            // console.log("switching to size Eight");
             newConfig = this.state.Config_8x10;
             this.setState({ sizing: "eight" });
           } else if (size === "twelve") {
-            console.log("switching to size Twelve");
+            // console.log("switching to size Twelve");
             newConfig = this.state.Config_12x10;
             this.setState({ sizing: "twelve" });
           }
@@ -586,7 +581,7 @@ class Display extends Component {
             initTween(camera);
             controls.enabled = true;
             this.camAnimActivate = false;
-            console.log("animation completed");
+            // console.log("animation completed");
           });
       };
 
@@ -601,7 +596,7 @@ class Display extends Component {
         if (idleTime > 8 && !controls.autoRotate) {
           idleTime = 0;
           if (this.state.autoRotate) {
-            console.log("auto rotation starting");
+            // console.log("auto rotation starting");
             this.resetCamPosition();
           }
           controls.autoRotate = this.state.autoRotate;
@@ -670,7 +665,7 @@ class Display extends Component {
         defaultsSet: true,
       });
       setTimeout(() => {
-        console.log(this.state);
+        // console.log(this.state);
       }, 2000);
     }
   }
@@ -685,17 +680,17 @@ class Display extends Component {
       var passedConfig;
       var camPosition;
       if (this.state.sizing === this.props.sizing) {
-        console.log("size is the same");
+        // console.log("size is the same");
         passedConfig = this.mutateConfigName(
           this.props.sizing,
           this.props.configuration
         );
         if (this.state.currentConfig.includes(passedConfig)) {
-          console.log("current config already includes this");
+          // console.log("current config already includes this");
         } else {
           camPosition = passedConfig.split("_")[1];
           if (this.state.camPosition === camPosition) {
-            console.log(`Camera is already showing ${camPosition}`);
+            // console.log(`Camera is already showing ${camPosition}`);
             this.setState({ camTargetPosition: camPosition });
             //switch configuration here
             //find mesh to disable
@@ -713,7 +708,7 @@ class Display extends Component {
               enableMesh: passedConfig,
             });
           } else {
-            console.log(`Camera will move to ${camPosition}`);
+            // console.log(`Camera will move to ${camPosition}`);
             this.setState({ camTargetPosition: camPosition });
             var curConfig = this.state.currentConfig;
             var meshToDisable;
@@ -743,7 +738,7 @@ class Display extends Component {
       this.setState({ prevConfig: this.props.configuration });
     }
     if (this.state.threeLoaded && this.props.color !== this.state.color) {
-      console.log("color updated to " + this.props.color);
+      // console.log("color updated to " + this.props.color);
 
       this.setState({
         changeColor: true,
@@ -766,13 +761,6 @@ class Display extends Component {
         <button onClick={() => this.startCamAnim("Left")}>Left</button>
         <button onClick={() => this.startCamAnim("Right")}>Right</button>
         <button onClick={() => this.startCamAnim("Back")}>North</button> */}
-        <button
-          onClick={() => {
-            console.log(this.state.allConfigs);
-          }}
-        >
-          Log All Available Configurations
-        </button>
         {/* <button
           onClick={() => {
             console.log(this.state.currentConfig);
@@ -780,13 +768,13 @@ class Display extends Component {
         >
           Log Current Configurations
         </button> */}
-        <button
+        <Button
+          buttonText="Reset to default configuration"
+          classes="Button"
           onClick={() => {
             this.resetDefaultConfig(this.state.sizing);
           }}
-        >
-          Reset to default configuration
-        </button>
+        />
       </div>
     );
   }

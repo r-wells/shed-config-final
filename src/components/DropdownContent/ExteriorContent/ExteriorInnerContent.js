@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "../../Container/Container";
 import ExteriorSelectionComponent from "./ExteriorSelectionComponent";
 import "./ExteriorContent.css";
@@ -11,20 +11,15 @@ const ExteriorInnerContent = ({
   type,
   updateConfiguration,
   size,
+  setDisplayedDataForSide,
 }) => {
-  const [displayedData, setDisplayedData] = useState();
-  // console.log("data", data);
-
-  const setDisplayedItems = () => {
-    // console.log("engage in setDisplayedItems");
-  };
   return (
     <Container>
       <Container classes="SelectionComponentContainer">
         {data.map((option) => {
           return (
             <ExteriorSelectionComponent
-              key={option.id}
+              key={option.image}
               value={400}
               clickEvent={clickEvent}
               label={option.image}
@@ -38,13 +33,13 @@ const ExteriorInnerContent = ({
       </Container>
       <Container classes="ExteriorInnerContentPaginationContainer">
         <Button
-          onClick={setDisplayedItems}
+          onClick={() => setDisplayedDataForSide("prev")}
           value="prev"
           classes="ExteriorInnerContentPaginationButton"
           buttonText={"<"}
         />
         <Button
-          onClick={setDisplayedItems}
+          onClick={() => setDisplayedDataForSide("next")}
           value="next"
           classes="ExteriorInnerContentPaginationButton"
           buttonText={">"}

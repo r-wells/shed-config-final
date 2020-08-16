@@ -1,0 +1,12 @@
+.table {
+  width: 100%;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nonHeader {
+  border-top: 1px solid #d3d3d3;
+}

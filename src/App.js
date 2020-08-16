@@ -28,18 +28,21 @@ class App extends Component {
     estimate: 0,
     sizing: "ten",
     configuration: false,
+    selectedConfigs: {
+      front: null,
+      back: null,
+      left: null,
+      right: null,
+    },
     selectedColorHexCode: "#c8e4c5",
   };
 
   setSelectedColor = (color) => {
     const stateObj = this.state;
     stateObj.selectedColorHexCode = color;
-    this.setState(
-      {
-        stateObj,
-      },
-      () => console.log("this.state", this.state)
-    );
+    this.setState({
+      stateObj,
+    });
   };
 
   setEstimate = () => {
@@ -48,18 +51,15 @@ class App extends Component {
     for (let type in types) {
       estimate += types[type];
     }
-    this.setState(
-      {
-        estimate,
-      },
-      () => console.log("this.state", this.state)
-    );
+    this.setState({
+      estimate,
+    });
   };
 
   //Set initial sizing to 8x8
   componentDidMount() {
     const stateObj = this.state;
-    stateObj.types.Sizing = 320;
+    stateObj.types.Sizing = 400;
     this.setState(
       {
         ...stateObj,
@@ -69,8 +69,6 @@ class App extends Component {
   }
 
   updateSizing = (sizing, value) => {
-    console.log("sizing in updatesizing", sizing);
-    console.log("value in updatesizing", value);
     if (this.state.sizing === sizing) {
       return;
     } else {
@@ -82,12 +80,13 @@ class App extends Component {
   };
 
   updateConfiguration = (label) => {
-    console.log("updating configuration");
     if (this.state.configuration === label) {
       return;
     } else {
       const prevState = this.state;
-      this.setState({ configuration: label });
+      this.setState({ configuration: label }, () =>
+        console.log("configuration", this.state.configuration)
+      );
     }
   };
 
@@ -137,11 +136,6 @@ class App extends Component {
           </Container>
           <Container key="3" classes="RightContainer">
             <Container key="4" classes="buttonContainer">
-              <Button
-                onClick={this.checkoutOnClick}
-                buttonText="Add To Wishlist"
-                classes={"Button"}
-              />
               <Button
                 onClick={this.checkoutOnClick}
                 buttonText="Checkout"

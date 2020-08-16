@@ -24,6 +24,20 @@ const ExteriorContent = ({
     setDisplayedSide(side);
   };
 
+  const setDisplayedDataForSide = (toggle) => {
+    if (toggle === "prev") {
+      if (prevIndex === 0) {
+        return;
+      }
+      setPrevIndex(prevIndex - postsPerPage);
+    } else {
+      if (prevIndex + postsPerPage >= sizeData[displayedSide].length) {
+        return;
+      }
+      setPrevIndex(prevIndex + postsPerPage);
+    }
+  };
+
   return (
     <Container>
       <Container classes="ExteriorButtonContainer">
@@ -33,16 +47,21 @@ const ExteriorContent = ({
               onClick={() => changeDisplayedSide(side)}
               classes="ExteriorButton"
               buttonText={side}
+              key={side}
             />
           );
         })}
       </Container>
       <Container classes="ExteriorInnerContentContainer">
         <ExteriorInnerContent
-          data={sizeData[displayedSide]}
+          data={sizeData[displayedSide].slice(
+            prevIndex,
+            prevIndex + postsPerPage
+          )}
           displayedSide={displayedSide}
           type={type}
           size={size}
+          setDisplayedDataForSide={setDisplayedDataForSide}
           clickEvent={clickEvent}
           updateConfiguration={updateConfiguration}
         />

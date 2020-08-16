@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "../../../images/selection-component-square.png";
 import "../InnerComponents//SelectionComponentContainer.css";
-// import images from "../../../assets/eight";
 
 const ExteriorSelectionComponent = ({
   type,
@@ -27,7 +26,6 @@ const ExteriorSelectionComponent = ({
 
   var label = label.slice(1);
 
-
   return (
     <div className="SelectionComponent">
       <img
@@ -37,10 +35,7 @@ const ExteriorSelectionComponent = ({
           e.target.src = "assets/missing_model.png";
         }}
       />
-      <label className="SelectionComponentLabel">{label}</label>
-
       <input
- key={Image}
         type="radio"
         name={type}
         value={value}
@@ -49,7 +44,6 @@ const ExteriorSelectionComponent = ({
           setConfiguration(label);
         }}
       />
-      {/* <p className="SelectionComponentPrice">${price}</p> */}
     </div>
   );
 };

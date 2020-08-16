@@ -54,6 +54,15 @@ let exterior = [
           image: "/F_22s_door",
         },
         {
+          image: "/F_22w_door",
+        },
+        {
+          image: "/F_door_22s",
+        },
+        {
+          image: "/F_door_22w",
+        },
+        {
           image: "/F_22s_w_44s",
         },
         {
@@ -67,9 +76,6 @@ let exterior = [
         },
         {
           image: "/F_22w_44w_22w",
-        },
-        {
-          image: "/F_22w_door",
         },
         {
           image: "/F_22w_s_44s",
@@ -104,16 +110,19 @@ let exterior = [
         {
           image: "/F_44w_s",
         },
-        {
-          image: "/F_door_22s",
-        },
-        {
-          image: "/F_door_22w",
-        },
       ],
       left: [
         {
           image: "/L_22s_door",
+        },
+        {
+          image: "/L_22w_door",
+        },
+        {
+          image: "/L_door_22s",
+        },
+        {
+          image: "/L_door_22w",
         },
         {
           image: "/L_22s_w_44s",
@@ -129,9 +138,6 @@ let exterior = [
         },
         {
           image: "/L_22w_44w_22w",
-        },
-        {
-          image: "/L_22w_door",
         },
         {
           image: "/L_22w_s_44s",
@@ -166,16 +172,19 @@ let exterior = [
         {
           image: "/L_44w_s",
         },
-        {
-          image: "/L_door_22s",
-        },
-        {
-          image: "/L_door_22w",
-        },
       ],
       right: [
         {
           image: "/R_22s_door",
+        },
+        {
+          image: "/R_22w_door",
+        },
+        {
+          image: "/R_door_22s",
+        },
+        {
+          image: "/R_door_22w",
         },
         {
           image: "/R_22s_w_44s",
@@ -188,9 +197,6 @@ let exterior = [
         },
         {
           image: "/R_22w_44s_22w",
-        },
-        {
-          image: "/R_22w_door",
         },
         {
           image: "/R_22w_s_44s",
@@ -224,12 +230,6 @@ let exterior = [
         },
         {
           image: "/R_44w_s",
-        },
-        {
-          image: "/R_door_22s",
-        },
-        {
-          image: "/R_door_22w",
         },
       ],
     },
@@ -298,15 +298,6 @@ let exterior = [
           image: "/F_22s_w_door",
         },
         {
-          image: "/F_22s_w_s_44s",
-        },
-        {
-          image: "/F_22s_w_s_w_s",
-        },
-        {
-          image: "/F_22w_44s_s",
-        },
-        {
           image: "/F_22w_door_22s",
         },
         {
@@ -316,10 +307,40 @@ let exterior = [
           image: "/F_22w_s_door",
         },
         {
-          image: "/F_22w_s_w_s_w",
+          image: "/F_22w_w_door",
         },
         {
-          image: "/F_22w_w_door",
+          image: "/F_44s_door",
+        },
+        {
+          image: "/F_44w_door",
+        },
+        {
+          image: "/F_door_22s_w",
+        },
+        {
+          image: "/F_door_22w_s",
+        },
+        {
+          image: "/F_door_22w_w",
+        },
+        {
+          image: "/F_door_44s",
+        },
+        {
+          image: "/F_door_44w",
+        },
+        {
+          image: "/F_22s_w_s_44s",
+        },
+        {
+          image: "/F_22s_w_s_w_s",
+        },
+        {
+          image: "/F_22w_44s_s",
+        },
+        {
+          image: "/F_22w_s_w_s_w",
         },
         {
           image: "/F_22w_w_s_44s",
@@ -343,9 +364,6 @@ let exterior = [
           image: "/F_44s_22w_44w",
         },
         {
-          image: "/F_44s_door",
-        },
-        {
           image: "/F_44s_s_22w",
         },
         {
@@ -360,31 +378,22 @@ let exterior = [
         {
           image: "/F_44w_22w_44w",
         },
-        {
-          image: "/F_44w_door",
-        },
-        {
-          image: "/F_door_22s_w",
-        },
-        {
-          image: "/F_door_22w_s",
-        },
-        {
-          image: "/F_door_22w_w",
-        },
-        {
-          image: "/F_door_44s",
-        },
-        {
-          image: "/F_door_44w",
-        },
       ],
       left: [
         {
-          image: "/L_22s_44w_22s",
+          image: "/L_22s_door",
         },
         {
-          image: "/L_22s_door",
+          image: "/L_22w_door",
+        },
+        {
+          image: "/L_door_22s",
+        },
+        {
+          image: "/L_door_22w",
+        },
+        {
+          image: "/L_22s_44w_22s",
         },
         {
           image: "/L_22s_w_44s",
@@ -400,9 +409,6 @@ let exterior = [
         },
         {
           image: "/L_22w_44w_22w",
-        },
-        {
-          image: "/L_22w_door",
         },
         {
           image: "/L_22w_s_44s",
@@ -440,19 +446,22 @@ let exterior = [
         {
           image: "/L_44w_w",
         },
-        {
-          image: "/L_door_22s",
-        },
-        {
-          image: "/L_door_22w",
-        },
       ],
       right: [
         {
-          image: "/R_22s_44w_22s",
+          image: "/R_22s_door",
         },
         {
-          image: "/R_22s_door",
+          image: "/R_22w_door",
+        },
+        {
+          image: "/R_door_22s",
+        },
+        {
+          image: "/R_door_22w",
+        },
+        {
+          image: "/R_22s_44w_22s",
         },
         {
           image: "/R_22s_w_44s",
@@ -468,9 +477,6 @@ let exterior = [
         },
         {
           image: "/R_22w_44w_22w",
-        },
-        {
-          image: "/R_22w_door",
         },
         {
           image: "/R_22w_s_44s",
@@ -507,12 +513,6 @@ let exterior = [
         },
         {
           image: "/R_44w_w",
-        },
-        {
-          image: "/R_door_22s",
-        },
-        {
-          image: "/R_door_22w",
         },
       ],
     },
@@ -578,9 +578,6 @@ let exterior = [
           image: "/F_22s_door_44s",
         },
         {
-          image: "/F_22s_w_w_w_w_s",
-        },
-        {
           image: "/F_22w_11s_door_11s_22s",
         },
         {
@@ -599,16 +596,7 @@ let exterior = [
           image: "/F_22w_door_44w",
         },
         {
-          image: "/F_22w_s_44s_s",
-        },
-        {
-          image: "/F_22w_s_44w_22s_w",
-        },
-        {
           image: "/F_22w_s_door_22w",
-        },
-        {
-          image: "/F_22w_w_44s_s",
         },
         {
           image: "/F_44s_22s_door",
@@ -617,13 +605,43 @@ let exterior = [
           image: "/F_44s_22w_door",
         },
         {
-          image: "/F_44s_22w_w_44s",
-        },
-        {
           image: "/F_44s_door_22s",
         },
         {
           image: "/F_44s_door_22w",
+        },
+        {
+          image: "/F_44w_22s_door",
+        },
+        {
+          image: "/F_44w_door_22w",
+        },
+        {
+          image: "/F_door_22s_44s",
+        },
+        {
+          image: "/F_door_22s_44w",
+        },
+        {
+          image: "/F_door_22w_44s",
+        },
+        {
+          image: "/F_door_44s_22w",
+        },
+        {
+          image: "/F_22s_w_w_w_w_s",
+        },
+        {
+          image: "/F_22w_s_44s_s",
+        },
+        {
+          image: "/F_22w_s_44w_22s_w",
+        },
+        {
+          image: "/F_22w_w_44s_s",
+        },
+        {
+          image: "/F_44s_22w_w_44s",
         },
         {
           image: "/F_44s_s_22s_w",
@@ -644,12 +662,6 @@ let exterior = [
           image: "/F_44s_w_w",
         },
         {
-          image: "/F_44w_22s_door",
-        },
-        {
-          image: "/F_44w_door_22w",
-        },
-        {
           image: "/F_44w_s_s",
         },
         {
@@ -660,18 +672,6 @@ let exterior = [
         },
         {
           image: "/F_44w_w_w",
-        },
-        {
-          image: "/F_door_22s_44s",
-        },
-        {
-          image: "/F_door_22s_44w",
-        },
-        {
-          image: "/F_door_22w_44s",
-        },
-        {
-          image: "/F_door_44s_22w",
         },
       ],
       left: [
@@ -685,15 +685,6 @@ let exterior = [
           image: "/L_22s_w_door",
         },
         {
-          image: "/L_22s_w_s_44s",
-        },
-        {
-          image: "/L_22s_w_s_w_s",
-        },
-        {
-          image: "/L_22w_44s_s",
-        },
-        {
           image: "/L_22w_door_22s",
         },
         {
@@ -703,10 +694,40 @@ let exterior = [
           image: "/L_22w_s_door",
         },
         {
-          image: "/L_22w_s_w_s_w",
+          image: "/L_22w_w_door",
         },
         {
-          image: "/L_22w_w_door",
+          image: "/L_44s_door",
+        },
+        {
+          image: "/L_44w_door",
+        },
+        {
+          image: "/L_door_22s_w",
+        },
+        {
+          image: "/L_door_22w_s",
+        },
+        {
+          image: "/L_door_22w_w",
+        },
+        {
+          image: "/L_door_44s",
+        },
+        {
+          image: "/L_door_44w",
+        },
+        {
+          image: "/L_22s_w_s_44s",
+        },
+        {
+          image: "/L_22s_w_s_w_s",
+        },
+        {
+          image: "/L_22w_44s_s",
+        },
+        {
+          image: "/L_22w_s_w_s_w",
         },
         {
           image: "/L_22w_w_s_44s",
@@ -730,9 +751,6 @@ let exterior = [
           image: "/L_44s_22w_44w",
         },
         {
-          image: "/L_44s_door",
-        },
-        {
           image: "/L_44s_s_22w",
         },
         {
@@ -747,24 +765,6 @@ let exterior = [
         {
           image: "/L_44w_22w_44w",
         },
-        {
-          image: "/L_44w_door",
-        },
-        {
-          image: "/L_door_22s_w",
-        },
-        {
-          image: "/L_door_22w_s",
-        },
-        {
-          image: "/L_door_22w_w",
-        },
-        {
-          image: "/L_door_44s",
-        },
-        {
-          image: "/L_door_44w",
-        },
       ],
       right: [
         {
@@ -777,15 +777,6 @@ let exterior = [
           image: "/R_22s_w_door",
         },
         {
-          image: "/R_22s_w_s_44s",
-        },
-        {
-          image: "/R_22s_w_s_w_s",
-        },
-        {
-          image: "/R_22w_44s_s",
-        },
-        {
           image: "/R_22w_door_22s",
         },
         {
@@ -795,10 +786,40 @@ let exterior = [
           image: "/R_22w_s_door",
         },
         {
-          image: "/R_22w_s_w_s_w",
+          image: "/R_22w_w_door",
         },
         {
-          image: "/R_22w_w_door",
+          image: "/R_44s_door",
+        },
+        {
+          image: "/R_44w_door",
+        },
+        {
+          image: "/R_door_22s_w",
+        },
+        {
+          image: "/R_door_22w_s",
+        },
+        {
+          image: "/R_door_22w_w",
+        },
+        {
+          image: "/R_door_44s",
+        },
+        {
+          image: "/R_door_44w",
+        },
+        {
+          image: "/R_22s_w_s_44s",
+        },
+        {
+          image: "/R_22s_w_s_w_s",
+        },
+        {
+          image: "/R_22w_44s_s",
+        },
+        {
+          image: "/R_22w_s_w_s_w",
         },
         {
           image: "/R_22w_w_s_44s",
@@ -822,9 +843,6 @@ let exterior = [
           image: "/R_44s_22w_44w",
         },
         {
-          image: "/R_44s_door",
-        },
-        {
           image: "/R_44s_s_22w",
         },
         {
@@ -838,24 +856,6 @@ let exterior = [
         },
         {
           image: "/R_44w_22w_44w",
-        },
-        {
-          image: "/R_44w_door",
-        },
-        {
-          image: "/R_door_22s_w",
-        },
-        {
-          image: "/R_door_22w_s",
-        },
-        {
-          image: "/R_door_22w_w",
-        },
-        {
-          image: "/R_door_44s",
-        },
-        {
-          image: "/R_door_44w",
         },
       ],
     },
