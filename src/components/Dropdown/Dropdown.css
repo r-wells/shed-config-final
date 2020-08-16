@@ -1,0 +1,19 @@
+.DropdownLink {
+  flex-grow: 1;
+  background-color: #edeff0;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  line-height: 0em;
+  color: #204d88;
+  font-weight: bold;
+  padding: 1px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  overflow-wrap: break-word;
+}
+
+.DropdownLink:hover {
+  cursor: pointer;
+}

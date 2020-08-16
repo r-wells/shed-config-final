@@ -1,0 +1,33 @@
+.Button {
+  color: white;
+  background-color: #204d88;
+  flex-grow: 1;
+  margin: 0 1% 0 1%;
+  border-radius: 5px;
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.Button:hover {
+  cursor: pointer;
+}
+
+.ButtonSizeContent {
+  color: white;
+  background-color: #204d88;
+  flex-grow: 1;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 405px) {
+  .Button {
+    margin-top: 5px;
+  }
+}

@@ -1,0 +1,56 @@
+.ExteriorButton {
+  background-color: #edeff0;
+  border-radius: 5px;
+  color: #204d88;
+  margin: 0 1% 1% 1%;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: 50px;
+}
+
+.ExteriorButton:hover {
+  background-color: #204d88;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ExteriorButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.ExteriorInnerContentContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+.ExteriorInnerContentPaginationButton {
+  background-color: #edeff0;
+  border-radius: 5px;
+  color: #204d88;
+  margin: 0 1% 1% 1%;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: 50px;
+}
+
+.ExteriorInnerContentPaginationButton:hover {
+  background-color: #204d88;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ExteriorInnerContentPaginationContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+}

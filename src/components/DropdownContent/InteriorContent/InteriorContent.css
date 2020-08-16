@@ -1,0 +1,11 @@
+.InteriorContent {
+  align-items: center;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.PriceTag {
+  color: #204d88;
+  font-weight: bold;
+  margin-left: 12px;
+}

@@ -1,0 +1,15 @@
+.SelectionComponent {
+  text-align: center;
+  width: 33%;
+}
+
+.SelectionComponentLabel {
+  display: block;
+  color: #000;
+}
+
+.SelectionComponentPrice {
+  margin-top: 0;
+  color: #204d88;
+  font-weight: bold;
+}

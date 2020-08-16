@@ -1,0 +1,10 @@
+.Title {
+  background-color: rgb(237, 239, 240);
+  border: 1px solid rgb(237, 239, 240);
+  border-radius: 5px;
+  font-size: 1.25em;
+  color: #244b84;
+  padding: 8px;
+  font-weight: bold;
+  margin: 0;
+}

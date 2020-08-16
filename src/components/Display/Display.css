@@ -1,0 +1,10 @@
+.DisplayContainer {
+display: flex;
+  max-height: 50vh;
+  max-width: 100%;
+  margin: 0 auto;
+  height:500px;
+border: inset 1px;
+border-radius:5px;
+margin:5px
+}

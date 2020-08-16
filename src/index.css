@@ -1,0 +1,25 @@
+:root {
+  --base-green: #c8e4c5;
+  --base-juneberry: #864258;
+  --base-naval: #2e3d4c;
+  --base-mysticshade: #b0aaab;
+  --base-rockcandy: #dee2e0;
+  --base-sand: #d4c5ba;
+  --base-sleepyblue: #bacacc;
+  --base-software: #808586;
+  --base-tassel: #c78945;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

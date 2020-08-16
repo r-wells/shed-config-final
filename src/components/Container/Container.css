@@ -1,0 +1,51 @@
+.AppContainer {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.RightContainer {
+  width: 40%;
+}
+
+.LeftContainer {
+  width: 60%;
+}
+
+.DropdownContainer {
+  margin-top: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1300px) {
+  .AppContainer {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .RightContainer {
+    width: 100%;
+  }
+
+  .LeftContainer {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .buttonContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
