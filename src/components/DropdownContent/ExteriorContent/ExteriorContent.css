@@ -1,3 +1,19 @@
+.ExteriorSelectionComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 33%;
+}
+
+.ExteriorSelectionComponentContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .ExteriorButton {
   background-color: #edeff0;
   border-radius: 5px;

@@ -14,8 +14,8 @@ const ExteriorInnerContent = ({
   setDisplayedDataForSide,
 }) => {
   return (
-    <Container>
-      <Container classes="SelectionComponentContainer">
+    <Container style={{ width: "100%", margin: "0 auto" }}>
+      <Container classes="ExteriorSelectionComponentContainer">
         {data.map((option) => {
           return (
             <ExteriorSelectionComponent

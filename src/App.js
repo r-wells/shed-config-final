@@ -8,14 +8,7 @@ import Dropdown from "./components/Dropdown/Dropdown";
 
 class App extends Component {
   state = {
-    inputTypes: [
-      "Sizing",
-      "Interior",
-      "Exterior",
-      "Siding",
-      "Colors",
-      "Services",
-    ],
+    inputTypes: ["Sizing", "Interior", "Exterior", "Siding", "Colors"],
     totalSquareFootage: 0,
     types: {
       Sizing: 0,
@@ -23,7 +16,6 @@ class App extends Component {
       Exterior: 0,
       Siding: 0,
       Colors: 0,
-      Services: 0,
     },
     estimate: 0,
     sizing: "ten",
@@ -80,6 +72,7 @@ class App extends Component {
   };
 
   updateConfiguration = (label) => {
+    console.log("label", label);
     if (this.state.configuration === label) {
       return;
     } else {

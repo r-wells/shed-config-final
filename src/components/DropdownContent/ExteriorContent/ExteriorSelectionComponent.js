@@ -27,8 +27,9 @@ const ExteriorSelectionComponent = ({
   var label = label.slice(1);
 
   return (
-    <div className="SelectionComponent">
+    <div className="ExteriorSelectionComponent">
       <img
+        style={{ margin: "0 auto" }}
         src={Image}
         onError={(e) => {
           e.target.onerror = null;
@@ -36,6 +37,7 @@ const ExteriorSelectionComponent = ({
         }}
       />
       <input
+        style={{ margin: "0 auto", marginTop: "10px", marginBottom: "10px" }}
         type="radio"
         name={type}
         value={value}
