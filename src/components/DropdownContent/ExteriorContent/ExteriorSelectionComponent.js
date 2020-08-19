@@ -36,6 +36,7 @@ const ExteriorSelectionComponent = ({
           e.target.src = "assets/missing_model.png";
         }}
       />
+      {/* <p>{label}</p> */}
       <input
         style={{ margin: "0 auto", marginTop: "10px", marginBottom: "10px" }}
         type="radio"

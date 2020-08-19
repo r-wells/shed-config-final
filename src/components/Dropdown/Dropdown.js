@@ -16,8 +16,11 @@ const Dropdown = ({
   updateConfiguration,
   size,
   setSelectedColor,
+  exteriorOptions,
+  selectedColorHexCode,
 }) => {
   const [display, setDisplay] = useState(false);
+  console.log("size in dropdown", size);
 
   return (
     <div style={{ overflowWrap: "break-word" }}>
@@ -27,7 +30,13 @@ const Dropdown = ({
       </a>
       <DropdownContent display={display}>
         {type === "Estimate" ? (
-          <Estimate estimateValue={estimateValue} typesValues={typesValues} />
+          <Estimate
+            exteriorOptions={exteriorOptions}
+            estimateValue={estimateValue}
+            typesValues={typesValues}
+            size={size}
+            selectedColorHexCode={selectedColorHexCode}
+          />
         ) : (
           <SelectionComponentContainer
             type={type}
@@ -38,6 +47,7 @@ const Dropdown = ({
             updateConfiguration={updateConfiguration}
             size={size}
             setSelectedColor={setSelectedColor}
+            exteriorOptions={exteriorOptions}
           />
         )}
       </DropdownContent>

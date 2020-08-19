@@ -16,6 +16,7 @@ const SelectionComponentContainer = ({
   updateConfiguration,
   size,
   setSelectedColor,
+  exteriorOptions,
 }) => {
   const [multiple, setMultiple] = React.useState(false);
   const [total, setTotal] = React.useState(0);
@@ -65,6 +66,7 @@ const SelectionComponentContainer = ({
           size={size}
           data={data}
           updateConfiguration={updateConfiguration}
+          exteriorOptions={exteriorOptions}
         />
       );
     } else {

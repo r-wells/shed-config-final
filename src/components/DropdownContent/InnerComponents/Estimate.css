@@ -9,4 +9,20 @@
 
 .nonHeader {
   border-top: 1px solid #d3d3d3;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.estimateImage {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+.estimateRow {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

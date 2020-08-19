@@ -21,10 +21,10 @@ class App extends Component {
     sizing: "ten",
     configuration: false,
     selectedConfigs: {
-      front: null,
-      back: null,
-      left: null,
-      right: null,
+      F: "F_22s_door_22s",
+      B: "B_44s_22s_44s",
+      L: "L_44s_s",
+      R: "R_44s_s",
     },
     selectedColorHexCode: "#c8e4c5",
   };
@@ -72,13 +72,16 @@ class App extends Component {
   };
 
   updateConfiguration = (label) => {
-    console.log("label", label);
     if (this.state.configuration === label) {
       return;
     } else {
+      const sideLetter = label.slice(0, 1);
       const prevState = this.state;
-      this.setState({ configuration: label }, () =>
-        console.log("configuration", this.state.configuration)
+      prevState.selectedConfigs[sideLetter] = label;
+      prevState.configuration = label;
+      console.log("prevState", prevState);
+      this.setState({ ...prevState }, () =>
+        console.log("configuration", this.state)
       );
     }
   };
@@ -115,7 +118,12 @@ class App extends Component {
   };
 
   render() {
-    const { inputTypes, sizing } = this.state;
+    const {
+      inputTypes,
+      sizing,
+      selectedConfigs,
+      selectedColorHexCode,
+    } = this.state;
     return (
       <div className="App">
         <Container key="1" classes="AppContainer">
@@ -158,7 +166,10 @@ class App extends Component {
                 clickEvent={this.dropdownClickHandler}
                 innerText="Your Estimate"
                 type="Estimate"
+                size={sizing}
                 typesValues={this.state.types}
+                exteriorOptions={selectedConfigs}
+                selectedColorHexCode={selectedColorHexCode}
               />
             </Container>
           </Container>
