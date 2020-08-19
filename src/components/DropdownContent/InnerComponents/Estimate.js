@@ -10,8 +10,6 @@ const Estimate = ({
   size,
   selectedColorHexCode,
 }) => {
-  console.log("exteriorOptions", exteriorOptions);
-  console.log("size in estimate", size);
   const frontImage = `assets/${size}/${exteriorOptions.F}.png`;
   const backImage = `assets/${size}/${exteriorOptions.B}.png`;
   const leftImage = `assets/${size}/${exteriorOptions.L}.png`;

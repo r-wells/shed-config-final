@@ -69,6 +69,29 @@ const SelectionComponentContainer = ({
           exteriorOptions={exteriorOptions}
         />
       );
+    } else if (type === "Siding") {
+      let sizeData;
+      data.forEach((d) => {
+        if (d.id === size) {
+          sizeData = d;
+          // return;
+        }
+      });
+      console.log("sizeData", sizeData);
+      return (
+        <SelectionComponentContainer classes="SelectionComponentContainer">
+          <SelectionComponent
+            key={sizeData.id}
+            value={sizeData.price}
+            clickEvent={setValueHandler}
+            label={sizeData.name}
+            price={sizeData.price}
+            type={type}
+          />
+        </SelectionComponentContainer>
+      );
+    } else if (!type) {
+      return null;
     } else {
       return (
         <Container classes="SelectionComponentContainer">

@@ -17,6 +17,9 @@ const SelectionComponent = ({
   const setSizing = (size, value) => {
     updateSizing(size, value);
   };
+  if (type === "Siding") {
+    console.log("selection component type", type);
+  }
 
   const colorDivStyles = {
     width: "65px",
@@ -27,6 +30,8 @@ const SelectionComponent = ({
   };
 
   const priceValue = "$" + price;
+
+  const innerContent = <React.Fragment></React.Fragment>;
 
   return (
     <div className="SelectionComponent">

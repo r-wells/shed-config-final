@@ -944,14 +944,19 @@ let interior = [
 
 let siding = [
   {
-    id: "cement_siding",
-    name: "Cement Siding",
-    price_per_sf: "13.00",
+    id: "eight",
+    name: "Lap Siding - 8 x 8",
+    price: "832.00",
   },
   {
-    id: "stacked_stone",
-    name: `Stacked Stone 3' high`,
-    price_per_sf: "25.00",
+    id: "ten",
+    name: "Lap Siding - 10 x 8",
+    price_per_sf: "1040.00",
+  },
+  {
+    id: "twelve",
+    name: "Lap Siding - 12 x 10",
+    price_per_sf: "1560.00",
   },
 ];
 

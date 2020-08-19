@@ -20,7 +20,6 @@ const Dropdown = ({
   selectedColorHexCode,
 }) => {
   const [display, setDisplay] = useState(false);
-  console.log("size in dropdown", size);
 
   return (
     <div style={{ overflowWrap: "break-word" }}>
