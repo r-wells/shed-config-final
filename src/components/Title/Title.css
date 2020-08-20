@@ -8,3 +8,9 @@
   font-weight: bold;
   margin: 0;
 }
+
+@media only screen and (max-width: 600px) {
+  .Title {
+    text-align: center;
+  }
+}

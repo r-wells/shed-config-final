@@ -5,6 +5,7 @@ import Title from "./components/Title/Title";
 import Display from "./components/Display/Display";
 import Button from "./components/Button/Button";
 import Dropdown from "./components/Dropdown/Dropdown";
+import NavBar from "./components/NavBar/NavBar";
 
 class App extends Component {
   state = {
@@ -113,7 +114,7 @@ class App extends Component {
     this.setEstimate();
   };
 
-  checkoutOnClick = () => {
+  checkoutOnClick = async () => {
     console.log("Checkout");
   };
 
@@ -126,6 +127,7 @@ class App extends Component {
     } = this.state;
     return (
       <div className="App">
+        <NavBar />
         <Container key="1" classes="AppContainer">
           <Container key="2" classes="LeftContainer">
             <Title titleText="ModShed Series Configurator" />
@@ -138,8 +140,8 @@ class App extends Component {
           <Container key="3" classes="RightContainer">
             <Container key="4" classes="buttonContainer">
               <Button
-                onClick={this.checkoutOnClick}
-                buttonText="Checkout"
+                href="tel:+6412955840"
+                buttonText="Call To Order"
                 classes={"Button"}
               />
             </Container>

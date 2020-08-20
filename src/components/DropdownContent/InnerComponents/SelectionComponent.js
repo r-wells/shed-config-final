@@ -48,7 +48,7 @@ const SelectionComponent = ({
         <input
           type="radio"
           name={type}
-          value={value}
+          value={`${value}`}
           onClick={
             type === "Sizing"
               ? () => setSizing(size, value)

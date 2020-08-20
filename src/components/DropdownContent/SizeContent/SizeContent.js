@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SelectionComponent from "../InnerComponents/SelectionComponent";
 import "../InnerComponents/SelectionComponentContainer.css";
 import Container from "./../../Container/Container";
@@ -13,8 +13,6 @@ const SizeContent = ({
   updateSizing,
   size,
 }) => {
-  console.log("sizecontent data", data);
-  let scValue;
   const calculateValue = (option) => {
     if (type === "Sizing") {
       return option.totalSquareFootage * Number(option.price_per_sf);

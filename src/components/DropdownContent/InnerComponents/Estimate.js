@@ -37,38 +37,36 @@ const Estimate = ({
         </tr>
         <tr id="total" className="tableRow nonHeader">
           <td>Exterior:</td>
-          <div>
-            <td>
-              <div className="estimateRow">
-                <span style={{ fontWeight: "bold", marginRight: "20px" }}>
-                  Front:{" "}
-                </span>
-                <p>{exteriorOptions.F}</p>
-                <img className="estimateImage" src={frontImage} />
-              </div>
-              <div className="estimateRow">
-                <span style={{ fontWeight: "bold", marginRight: "20px" }}>
-                  Back:{" "}
-                </span>
-                <p>{exteriorOptions.B}</p>
-                <img className="estimateImage" src={backImage} />
-              </div>
-              <div className="estimateRow">
-                <span style={{ fontWeight: "bold", marginRight: "20px" }}>
-                  Left:{" "}
-                </span>
-                <p>{exteriorOptions.L}</p>
-                <img className="estimateImage" src={leftImage} />
-              </div>
-              <div className="estimateRow">
-                <span style={{ fontWeight: "bold", marginRight: "20px" }}>
-                  Right:{" "}
-                </span>
-                <p>{exteriorOptions.R}</p>
-                <img className="estimateImage" src={rightImage} />
-              </div>
-            </td>
-          </div>
+          <td>
+            <div className="estimateRow">
+              <span style={{ fontWeight: "bold", marginRight: "20px" }}>
+                Front:{" "}
+              </span>
+              <p>{exteriorOptions.F}</p>
+              <img className="estimateImage" src={frontImage} />
+            </div>
+            <div className="estimateRow">
+              <span style={{ fontWeight: "bold", marginRight: "20px" }}>
+                Back:{" "}
+              </span>
+              <p>{exteriorOptions.B}</p>
+              <img className="estimateImage" src={backImage} />
+            </div>
+            <div className="estimateRow">
+              <span style={{ fontWeight: "bold", marginRight: "20px" }}>
+                Left:{" "}
+              </span>
+              <p>{exteriorOptions.L}</p>
+              <img className="estimateImage" src={leftImage} />
+            </div>
+            <div className="estimateRow">
+              <span style={{ fontWeight: "bold", marginRight: "20px" }}>
+                Right:{" "}
+              </span>
+              <p>{exteriorOptions.R}</p>
+              <img className="estimateImage" src={rightImage} />
+            </div>
+          </td>
         </tr>
         <tr id="total" className="tableRow nonHeader">
           <td>Color:</td>

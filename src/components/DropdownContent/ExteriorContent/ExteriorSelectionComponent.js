@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "../../../images/selection-component-square.png";
 import "../InnerComponents//SelectionComponentContainer.css";
 
 const ExteriorSelectionComponent = ({
@@ -14,9 +13,9 @@ const ExteriorSelectionComponent = ({
   updateConfiguration,
   size,
 }) => {
-  const setSizing = (size) => {
-    updateSizing(size);
-  };
+  // const setSizing = (size) => {
+  //   updateSizing(size);
+  // };
 
   const setConfiguration = (label) => {
     updateConfiguration(label);
@@ -36,7 +35,6 @@ const ExteriorSelectionComponent = ({
           e.target.src = "assets/missing_model.png";
         }}
       />
-      {/* <p>{label}</p> */}
       <input
         style={{ margin: "0 auto", marginTop: "10px", marginBottom: "10px" }}
         type="radio"
