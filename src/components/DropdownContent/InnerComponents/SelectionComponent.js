@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SelectionComponent.css";
 import Image from "../../../images/selection-component-square.png";
+import { render } from "@testing-library/react";
 
 const SelectionComponent = ({
   type,
@@ -14,12 +15,16 @@ const SelectionComponent = ({
   size,
   color,
 }) => {
+  const [priceToZero, setPriceToZero] = useState(false);
+
+  const triggerSetPriceToZero = () => {
+    clickEvent(price, priceToZero);
+    setPriceToZero(!priceToZero);
+  };
+
   const setSizing = (size, value) => {
     updateSizing(size, value);
   };
-  if (type === "Siding") {
-    console.log("selection component type", type);
-  }
 
   const colorDivStyles = {
     width: "65px",
@@ -31,9 +36,7 @@ const SelectionComponent = ({
 
   const priceValue = "$" + price;
 
-  const innerContent = <React.Fragment></React.Fragment>;
-
-  return (
+  let renderedComponent = (
     <div className="SelectionComponent">
       {type === "Colors" ? <div style={colorDivStyles} /> : <img src={Image} />}
       <label className="SelectionComponentLabel">{label}</label>
@@ -61,6 +64,21 @@ const SelectionComponent = ({
       </p>
     </div>
   );
+
+  if (type === "Siding") {
+    renderedComponent = (
+      <div
+        style={{ width: "100%", display: "flex", marginBottom: "10px" }}
+        className="SelectionComponent"
+      >
+        <input onClick={() => triggerSetPriceToZero()} type="checkbox" />
+        <label>Add Lapsiding</label>
+        <span className={"PriceTag"}>${`${price.toString()}.00`}</span>
+      </div>
+    );
+  }
+
+  return renderedComponent;
 };
 
 export default SelectionComponent;

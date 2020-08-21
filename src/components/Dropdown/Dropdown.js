@@ -21,9 +21,8 @@ const Dropdown = ({
 }) => {
   const [display, setDisplay] = useState(false);
 
-  if (type === "Siding") {
-    return null;
-  }
+  // console.log("---Dropdown---");
+  // console.log("type", type);
   return (
     <div style={{ overflowWrap: "break-word" }}>
       <a onClick={() => setDisplay(!display)} className="DropdownLink">

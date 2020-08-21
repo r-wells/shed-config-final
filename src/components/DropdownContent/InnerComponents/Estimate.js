@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Estimate.css";
+import Container from "./../../Container/Container";
+import Button from "./../../Button/Button";
+import "./../../Button/Button.css";
 
 const Estimate = ({
   estimateValue,
@@ -10,6 +13,12 @@ const Estimate = ({
   size,
   selectedColorHexCode,
 }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+
+  window.addEventListener("resize", () => {
+    window.innerWidth < 600 ? setIsMobile(true) : setIsMobile(false);
+  });
+
   const frontImage = `assets/${size}/${exteriorOptions.F}.png`;
   const backImage = `assets/${size}/${exteriorOptions.B}.png`;
   const leftImage = `assets/${size}/${exteriorOptions.L}.png`;
@@ -26,13 +35,25 @@ const Estimate = ({
         <tr id="total" className="tableRow nonHeader">
           <td>Sizing:</td>
           <td>
-            <span style={{ fontWeight: "bold" }}>${typesValues.Sizing}</span>
+            <span style={{ fontWeight: "bold" }}>
+              ${`${typesValues.Sizing}.00`}
+            </span>
           </td>
         </tr>
         <tr id="total" className="tableRow nonHeader">
           <td>Interior:</td>
           <td>
-            <span style={{ fontWeight: "bold" }}>${typesValues.Interior}</span>
+            <span style={{ fontWeight: "bold" }}>
+              ${`${typesValues.Interior}.00`}
+            </span>
+          </td>
+        </tr>
+        <tr id="total" className="tableRow nonHeader">
+          <td>Siding:</td>
+          <td>
+            <span style={{ fontWeight: "bold" }}>
+              ${`${typesValues.Siding}.00`}
+            </span>
           </td>
         </tr>
         <tr id="total" className="tableRow nonHeader">
@@ -81,10 +102,21 @@ const Estimate = ({
         <tr id="total" className="tableRow nonHeader">
           <td>Your Estimate is:</td>
           <td>
-            <span style={{ fontWeight: "bold" }}>${estimateValue}</span>
+            <span style={{ fontWeight: "bold" }}>
+              ${`${estimateValue.toString()}.00`}
+            </span>
           </td>
         </tr>
       </tbody>
+      {isMobile && (
+        <Container key="4" classes="buttonContainer">
+          <Button
+            href="tel:+6788418240"
+            buttonText="Call To Order"
+            classes={"Button"}
+          />
+        </Container>
+      )}
     </table>
   );
 };

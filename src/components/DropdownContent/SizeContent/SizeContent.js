@@ -15,7 +15,7 @@ const SizeContent = ({
 }) => {
   const calculateValue = (option) => {
     if (type === "Sizing") {
-      return option.totalSquareFootage * Number(option.price_per_sf);
+      return Number(option.price);
     } else {
       return option.price ? Number(option.price) : Number(option.price_per_sf);
     }
@@ -28,11 +28,9 @@ const SizeContent = ({
           <SelectionComponent
             key={option.id}
             value={calculateValue(option)}
-            clickEvent={() =>
-              clickEvent(option.totalSquareFootage, FLOORING_PSF)
-            }
+            clickEvent={() => clickEvent(option.price)}
             label={option.name}
-            price={option.price_per_sf * option.totalSquareFootage}
+            price={option.price}
             type={type}
             multiple={multiple}
             updateSizing={updateSizing}

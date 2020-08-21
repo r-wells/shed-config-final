@@ -870,6 +870,7 @@ let size = [
     length: 8,
     width: 8,
     price_per_sf: FLOORING_PSF,
+    price: 5439.0,
   },
   {
     id: "ten",
@@ -878,6 +879,7 @@ let size = [
     length: 10,
     width: 8,
     price_per_sf: FLOORING_PSF,
+    price: 6799.0,
   },
   {
     id: "twelve",
@@ -886,6 +888,7 @@ let size = [
     length: 12,
     width: 10,
     price_per_sf: FLOORING_PSF,
+    price: 10199.0,
   },
 ];
 
@@ -951,12 +954,12 @@ let siding = [
   {
     id: "ten",
     name: "Lap Siding - 10 x 8",
-    price_per_sf: "1040.00",
+    price: "1040.00",
   },
   {
     id: "twelve",
     name: "Lap Siding - 12 x 10",
-    price_per_sf: "1560.00",
+    price: "1560.00",
   },
 ];
 
@@ -1030,6 +1033,29 @@ let colors = [
     hexcode: "#c78945",
   },
 ];
+
+export let selectedConfigs = {
+  eightSelectedConfigs: {
+    F: "F_22s_door",
+    B: "B_44s_s",
+    L: "L_44s_s",
+    R: "R_44s_s",
+  },
+
+  tenSelectedConfigs: {
+    F: "F_22s_door_22s",
+    B: "B_44s_22s_44s",
+    L: "L_44s_s",
+    R: "R_44s_s",
+  },
+
+  twelveSelectedConfigs: {
+    F: "F_22s_door_44s",
+    B: "B_44s_s_s",
+    L: "L_44s_22s_44s",
+    R: "R_44s_22s_44s",
+  },
+};
 
 export function getColorOptions() {
   return colors;

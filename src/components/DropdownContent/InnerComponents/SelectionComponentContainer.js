@@ -22,12 +22,19 @@ const SelectionComponentContainer = ({
   const [total, setTotal] = React.useState(0);
   const [totalSquareFootage, setTotalSquareFootage] = React.useState(8 * 8);
   const [color, setColor] = React.useState("#c8e4c5");
+  if (type === undefined) {
+    return null;
+  }
   const data = getInitialData(type);
 
-  const setSquareFootageHandler = (option) => {
-    setTotalSquareFootage(option.length * option.width);
-    setTotal(option.price);
-    setSquareFootageEvent(option.length * option.width);
+  const setPriceForSiding = (price, priceToZero) => {
+    if (priceToZero) {
+      setTotal(0);
+      setPriceEvent(type, 0);
+    } else {
+      setTotal(price);
+      setPriceEvent(type, price);
+    }
   };
 
   const setValueHandler = (e, perSquareFoot, color) => {
@@ -74,24 +81,24 @@ const SelectionComponentContainer = ({
       data.forEach((d) => {
         if (d.id === size) {
           sizeData = d;
-          // return;
+          sizeData.price = Number(d.price);
         }
       });
-      console.log("sizeData", sizeData);
       return (
-        <SelectionComponentContainer classes="SelectionComponentContainer">
+        <Container
+          classes="SelectionComponentContainer"
+          style={{ width: "100%" }}
+        >
           <SelectionComponent
             key={sizeData.id}
             value={sizeData.price}
-            clickEvent={setValueHandler}
+            clickEvent={setPriceForSiding}
             label={sizeData.name}
             price={sizeData.price}
             type={type}
           />
-        </SelectionComponentContainer>
+        </Container>
       );
-    } else if (!type) {
-      return null;
     } else {
       return (
         <Container classes="SelectionComponentContainer">

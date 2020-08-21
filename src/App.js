@@ -6,6 +6,28 @@ import Display from "./components/Display/Display";
 import Button from "./components/Button/Button";
 import Dropdown from "./components/Dropdown/Dropdown";
 import NavBar from "./components/NavBar/NavBar";
+import { selectedConfigs } from "./utils/_DATA";
+
+const eightSelectedConfigs = {
+  F: "F_22s_door",
+  B: "B_44s_s",
+  L: "L_44s_s",
+  R: "R_44s_s",
+};
+
+const tenSelectedConfigs = {
+  F: "F_22s_door_22s",
+  B: "B_44s_22s_44s",
+  L: "L_44s_s",
+  R: "R_44s_s",
+};
+
+const twelveSelectedConfigs = {
+  F: "F_22s_door_44s",
+  B: "B_44s_s_s",
+  L: "L_44s_22s_44s",
+  R: "R_44s_22s_44s",
+};
 
 class App extends Component {
   state = {
@@ -21,12 +43,7 @@ class App extends Component {
     estimate: 0,
     sizing: "ten",
     configuration: false,
-    selectedConfigs: {
-      F: "F_22s_door_22s",
-      B: "B_44s_22s_44s",
-      L: "L_44s_s",
-      R: "R_44s_s",
-    },
+    selectedConfigs: selectedConfigs.tenSelectedConfigs,
     selectedColorHexCode: "#c8e4c5",
   };
 
@@ -52,7 +69,7 @@ class App extends Component {
   //Set initial sizing to 8x8
   componentDidMount() {
     const stateObj = this.state;
-    stateObj.types.Sizing = 400;
+    stateObj.types.Sizing = 6799;
     this.setState(
       {
         ...stateObj,
@@ -68,6 +85,13 @@ class App extends Component {
       const prevState = this.state;
       prevState.types.Sizing = value;
       prevState.sizing = sizing;
+      if (sizing === "eight") {
+        prevState.selectedConfigs = selectedConfigs.eightSelectedConfigs;
+      } else if (sizing === "ten") {
+        prevState.selectedConfigs = selectedConfigs.tenSelectedConfigs;
+      } else {
+        prevState.selectedConfigs = selectedConfigs.twelveSelectedConfigs;
+      }
       this.setState({ ...prevState }, () => this.setEstimate());
     }
   };
@@ -80,10 +104,7 @@ class App extends Component {
       const prevState = this.state;
       prevState.selectedConfigs[sideLetter] = label;
       prevState.configuration = label;
-      console.log("prevState", prevState);
-      this.setState({ ...prevState }, () =>
-        console.log("configuration", this.state)
-      );
+      this.setState({ ...prevState });
     }
   };
 
@@ -104,13 +125,17 @@ class App extends Component {
     }
   };
 
-  setSquareFootageEvent = (totalSquareFootage, ppsf) => {
+  setSquareFootageEvent = (price) => {
+    console.log("price in setsqfootageevent", price);
     const stateObj = this.state;
-    stateObj.types["Sizing"] = totalSquareFootage * ppsf;
-    stateObj[totalSquareFootage] = totalSquareFootage;
-    this.setState({
-      stateObj,
-    });
+    stateObj.types["Sizing"] = price;
+    // stateObj[totalSquareFootage] = totalSquareFootage;
+    this.setState(
+      {
+        ...stateObj,
+      },
+      () => console.log("this.state", this.state)
+    );
     this.setEstimate();
   };
 
@@ -140,7 +165,7 @@ class App extends Component {
           <Container key="3" classes="RightContainer">
             <Container key="4" classes="buttonContainer">
               <Button
-                href="tel:+6412955840"
+                href="tel:+6788418240"
                 buttonText="Call To Order"
                 classes={"Button"}
               />
