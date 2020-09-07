@@ -88,8 +88,6 @@ class App extends Component {
   updateConfiguration = (label) => {
     console.log("label", label);
     let windowsPricing = 0;
-    console.log("label includes small window", label.includes(SMALL_WINDOW));
-    console.log("label includes large window", label.includes(LARGE_WINDOW));
     if (this.state.configuration === label) {
       return;
     } else {
@@ -101,17 +99,53 @@ class App extends Component {
     }
   };
 
-  // getWindowPricingForSideConfig(label) {
-  //   let price = 0;
-  //   if(label.includes(SMALL_WINDOW)) {
-  //     let continueLoop = true;
-  //     while(continueLoop) {
-
-  //     }
-  //   } else if(label.includes(LARGE_WINDOW)) {
-
-  //   }
-  // }
+  getWindowPricingForSideConfig(label) {
+    let price = 0;
+    if (label.includes(SMALL_WINDOW)) {
+      let continueLoop = true;
+      let remainingLabel = label;
+      while (continueLoop) {
+        if (
+          !remainingLabel.includes(SMALL_WINDOW) &&
+          !remainingLabel.includes("w")
+        ) {
+          continueLoop = false;
+          continue;
+        } else {
+          if (remainingLabel.includes(SMALL_WINDOW)) {
+            price += 50;
+            remainingLabel.replace(SMALL_WINDOW, "");
+          }
+          if (remainingLabel.includes("w")) {
+            price += 50;
+            remainingLabel.replace("w", "");
+          }
+        }
+      }
+    } else if (label.includes(LARGE_WINDOW)) {
+      let continueLoop = true;
+      let remainingLabel = label;
+      while (continueLoop) {
+        if (
+          !remainingLabel.includes(LARGE_WINDOW) &&
+          !remainingLabel.includes("w")
+        ) {
+          continueLoop = false;
+          continue;
+        } else {
+          if (remainingLabel.includes(LARGE_WINDOW)) {
+            price += 100;
+            remainingLabel.replace(LARGE_WINDOW, "");
+          }
+          if (remainingLabel.includes("w")) {
+            price += 100;
+            remainingLabel.replace("w", "");
+          }
+        }
+      }
+    }
+    return 0;
+  }
 
   setPricing = (type, price) => {
     const stateObj = this.state;
