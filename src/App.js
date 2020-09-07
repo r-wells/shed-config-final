@@ -10,28 +10,11 @@ import {
   selectedConfigs,
   getColorByHexCode,
   getShedSizeByName,
+  windowsPricing,
 } from "./utils/_DATA";
 
-const eightSelectedConfigs = {
-  F: "F_22s_door",
-  B: "B_44s_s",
-  L: "L_44s_s",
-  R: "R_44s_s",
-};
-
-const tenSelectedConfigs = {
-  F: "F_22s_door_22s",
-  B: "B_44s_22s_44s",
-  L: "L_44s_s",
-  R: "R_44s_s",
-};
-
-const twelveSelectedConfigs = {
-  F: "F_22s_door_44s",
-  B: "B_44s_s_s",
-  L: "L_44s_22s_44s",
-  R: "R_44s_22s_44s",
-};
+const LARGE_WINDOW = "44w";
+const SMALL_WINDOW = "22w";
 
 class App extends Component {
   state = {
@@ -70,8 +53,7 @@ class App extends Component {
     });
   };
 
-  //Set initial sizing to 8x8
-  componentDidMount() {
+  async componentDidMount() {
     const stateObj = this.state;
     stateObj.types.Sizing = 6799;
     this.setState(
@@ -83,6 +65,9 @@ class App extends Component {
   }
 
   updateSizing = (sizing, value) => {
+    console.log("selectedConfigs", this.state.selectedConfigs);
+    // console.log("sizing", sizing);
+    // console.log("value", value);
     if (this.state.sizing === sizing) {
       return;
     } else {
@@ -101,6 +86,8 @@ class App extends Component {
   };
 
   updateConfiguration = (label) => {
+    console.log("label", label);
+    let windowsPricing = 0;
     if (this.state.configuration === label) {
       return;
     } else {
@@ -111,6 +98,54 @@ class App extends Component {
       this.setState({ ...prevState });
     }
   };
+
+  getWindowPricingForSideConfig(label) {
+    let price = 0;
+    if (label.includes(SMALL_WINDOW)) {
+      let continueLoop = true;
+      let remainingLabel = label;
+      while (continueLoop) {
+        if (
+          !remainingLabel.includes(SMALL_WINDOW) &&
+          !remainingLabel.includes("w")
+        ) {
+          continueLoop = false;
+          continue;
+        } else {
+          if (remainingLabel.includes(SMALL_WINDOW)) {
+            price += 50;
+            remainingLabel.replace(SMALL_WINDOW, "");
+          }
+          if (remainingLabel.includes("w")) {
+            price += 50;
+            remainingLabel.replace("w", "");
+          }
+        }
+      }
+    } else if (label.includes(LARGE_WINDOW)) {
+      let continueLoop = true;
+      let remainingLabel = label;
+      while (continueLoop) {
+        if (
+          !remainingLabel.includes(LARGE_WINDOW) &&
+          !remainingLabel.includes("w")
+        ) {
+          continueLoop = false;
+          continue;
+        } else {
+          if (remainingLabel.includes(LARGE_WINDOW)) {
+            price += 100;
+            remainingLabel.replace(LARGE_WINDOW, "");
+          }
+          if (remainingLabel.includes("w")) {
+            price += 100;
+            remainingLabel.replace("w", "");
+          }
+        }
+      }
+    }
+    return 0;
+  }
 
   setPricing = (type, price) => {
     const stateObj = this.state;
@@ -202,8 +237,8 @@ class App extends Component {
                 classes={"Button"}
               />
               <Button
-                buttonText="Checkout"
                 classes={"Button"}
+                buttonText="Add To Cart"
                 onClick={() => this.checkoutOnClick()}
               />
             </Container>
