@@ -1034,6 +1034,32 @@ let colors = [
   },
 ];
 
+export let windowsPricing = [
+  { name: "22w", price: 50.0 },
+  { name: "44w", price: 100.0 },
+];
+
+export function getShedSizeByName(name) {
+  switch (name) {
+    case "eight":
+      return "8x8";
+      break;
+    case "ten":
+      return "10x8";
+      break;
+    case "twelve":
+      return "12x10";
+      break;
+  }
+}
+
+export function getColorByHexCode(hexcode) {
+  const returnedColor = colors.filter((color) => {
+    return color.hexcode === hexcode;
+  });
+  return returnedColor[0].name;
+}
+
 export let selectedConfigs = {
   eightSelectedConfigs: {
     F: "F_22s_door",

@@ -6,28 +6,15 @@ import Display from "./components/Display/Display";
 import Button from "./components/Button/Button";
 import Dropdown from "./components/Dropdown/Dropdown";
 import NavBar from "./components/NavBar/NavBar";
-import { selectedConfigs } from "./utils/_DATA";
+import {
+  selectedConfigs,
+  getColorByHexCode,
+  getShedSizeByName,
+  windowsPricing,
+} from "./utils/_DATA";
 
-const eightSelectedConfigs = {
-  F: "F_22s_door",
-  B: "B_44s_s",
-  L: "L_44s_s",
-  R: "R_44s_s",
-};
-
-const tenSelectedConfigs = {
-  F: "F_22s_door_22s",
-  B: "B_44s_22s_44s",
-  L: "L_44s_s",
-  R: "R_44s_s",
-};
-
-const twelveSelectedConfigs = {
-  F: "F_22s_door_44s",
-  B: "B_44s_s_s",
-  L: "L_44s_22s_44s",
-  R: "R_44s_22s_44s",
-};
+const LARGE_WINDOW = "44w";
+const SMALL_WINDOW = "22w";
 
 class App extends Component {
   state = {
@@ -66,8 +53,7 @@ class App extends Component {
     });
   };
 
-  //Set initial sizing to 8x8
-  componentDidMount() {
+  async componentDidMount() {
     const stateObj = this.state;
     stateObj.types.Sizing = 6799;
     this.setState(
@@ -79,6 +65,9 @@ class App extends Component {
   }
 
   updateSizing = (sizing, value) => {
+    console.log("selectedConfigs", this.state.selectedConfigs);
+    // console.log("sizing", sizing);
+    // console.log("value", value);
     if (this.state.sizing === sizing) {
       return;
     } else {
@@ -97,6 +86,10 @@ class App extends Component {
   };
 
   updateConfiguration = (label) => {
+    console.log("label", label);
+    let windowsPricing = 0;
+    console.log("label includes small window", label.includes(SMALL_WINDOW));
+    console.log("label includes large window", label.includes(LARGE_WINDOW));
     if (this.state.configuration === label) {
       return;
     } else {
@@ -107,6 +100,18 @@ class App extends Component {
       this.setState({ ...prevState });
     }
   };
+
+  // getWindowPricingForSideConfig(label) {
+  //   let price = 0;
+  //   if(label.includes(SMALL_WINDOW)) {
+  //     let continueLoop = true;
+  //     while(continueLoop) {
+
+  //     }
+  //   } else if(label.includes(LARGE_WINDOW)) {
+
+  //   }
+  // }
 
   setPricing = (type, price) => {
     const stateObj = this.state;
@@ -139,8 +144,36 @@ class App extends Component {
     this.setEstimate();
   };
 
-  checkoutOnClick = async () => {
+  checkoutOnClick = () => {
     console.log("Checkout");
+    const color = getColorByHexCode(this.state.selectedColorHexCode)
+      ? getColorByHexCode(this.state.selectedColorHexCode)
+      : "Green";
+    const size = getShedSizeByName(this.state.sizing);
+    const interiorOptions =
+      this.state.types.Interior > 0 ? "Lifestyle" : "None";
+    const selectedSiding =
+      this.state.types.Siding > 0 ? "Lapsiding" : "Default";
+    const carturl =
+      "https://www.mod-shed.com/cart/?add-to-cart=465&total_price=" +
+      this.state.estimate +
+      "&shed_color=" +
+      color +
+      "&shed_size=" +
+      size +
+      "&interior_options=" +
+      interiorOptions +
+      "&front_config=" +
+      this.state.selectedConfigs.F +
+      "&back_config=" +
+      this.state.selectedConfigs.B +
+      "&left_config=" +
+      this.state.selectedConfigs.L +
+      "&right_config=" +
+      this.state.selectedConfigs.R +
+      "&siding_option=" +
+      selectedSiding;
+    window.open(carturl);
   };
 
   render() {
@@ -168,6 +201,11 @@ class App extends Component {
                 href="tel:+6788418240"
                 buttonText="Call To Order"
                 classes={"Button"}
+              />
+              <Button
+                classes={"Button"}
+                buttonText="Add To Cart"
+                onClick={() => this.checkoutOnClick()}
               />
             </Container>
             <Container key="5" classes="DropdownContainer">
