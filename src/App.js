@@ -6,7 +6,11 @@ import Display from "./components/Display/Display";
 import Button from "./components/Button/Button";
 import Dropdown from "./components/Dropdown/Dropdown";
 import NavBar from "./components/NavBar/NavBar";
-import { selectedConfigs } from "./utils/_DATA";
+import {
+  selectedConfigs,
+  getColorByHexCode,
+  getShedSizeByName,
+} from "./utils/_DATA";
 
 const eightSelectedConfigs = {
   F: "F_22s_door",
@@ -139,8 +143,36 @@ class App extends Component {
     this.setEstimate();
   };
 
-  checkoutOnClick = async () => {
+  checkoutOnClick = () => {
     console.log("Checkout");
+    const color = getColorByHexCode(this.state.selectedColorHexCode)
+      ? getColorByHexCode(this.state.selectedColorHexCode)
+      : "Green";
+    const size = getShedSizeByName(this.state.sizing);
+    const interiorOptions =
+      this.state.types.Interior > 0 ? "Lifestyle" : "None";
+    const selectedSiding =
+      this.state.types.Siding > 0 ? "Lapsiding" : "Default";
+    const carturl =
+      "https://www.mod-shed.com/cart/?add-to-cart=465&total_price=" +
+      this.state.estimate +
+      "&shed_color=" +
+      color +
+      "&shed_size=" +
+      size +
+      "&interior_options=" +
+      interiorOptions +
+      "&front_config=" +
+      this.state.selectedConfigs.F +
+      "&back_config=" +
+      this.state.selectedConfigs.B +
+      "&left_config=" +
+      this.state.selectedConfigs.L +
+      "&right_config=" +
+      this.state.selectedConfigs.R +
+      "&siding_option=" +
+      selectedSiding;
+    window.open(carturl);
   };
 
   render() {
@@ -168,6 +200,11 @@ class App extends Component {
                 href="tel:+6788418240"
                 buttonText="Call To Order"
                 classes={"Button"}
+              />
+              <Button
+                buttonText="Checkout"
+                classes={"Button"}
+                onClick={() => this.checkoutOnClick()}
               />
             </Container>
             <Container key="5" classes="DropdownContainer">
